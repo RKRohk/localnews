@@ -76,7 +76,7 @@ class _GeneralNewsState extends State<GeneralNews> {
     );
   }
 
-  final kTextStyle = TextStyle(fontSize: 22,fontWeight: FontWeight.w600);
+  final kTextStyle = TextStyle(fontSize: 22, fontWeight: FontWeight.w600);
 
   @override
   void initState() {
@@ -92,73 +92,103 @@ class _GeneralNewsState extends State<GeneralNews> {
             child: CircularProgressIndicator(),
           )
         : SafeArea(
-            child: Container(
-                child: Padding(
-              padding: EdgeInsets.all(8),
-              child: SingleChildScrollView(
-                physics: BouncingScrollPhysics(),
-                  child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(left:16),
-                    child: Text("Business",style: kTextStyle),
-                  ),
-                  SizedBox(height: 300, child: getList(business)),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(left:16),
-                    child: Text("Entertainment",style: kTextStyle,),
-                  ),
-                  SizedBox(height: 300, child: getList(entertainment)),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(left:16),
-                    child: Text("General",style: kTextStyle,),
-                  ),
-                  SizedBox(height: 300, child: getList(general)),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(left:16),
-                    child: Text("Health",style: kTextStyle,),
-                  ),
-                  SizedBox(height: 300, child: getList(health)),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(left:16),
-                    child: Text("Science",style: kTextStyle,),
-                  ),
-                  SizedBox(height: 300, child: getList(science)),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(left:16),
-                    child: Text("Sports",style: kTextStyle,),
-                  ),
-                  SizedBox(height: 300, child: getList(sports)),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(left:16),
-                    child: Text("Technology",style: kTextStyle,),
-                  ),
-                  SizedBox(height: 300, child: getList(technology)),
-                ],
-              )),
-            )),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(18,8,0,6),
+                  child: Text("CATEGORIES",style: TextStyle(fontSize: 36,fontWeight: FontWeight.w700),),
+                ),
+                Expanded(
+                  child: Container(
+                      child: Padding(
+                    padding: EdgeInsets.all(8),
+                    child: SingleChildScrollView(
+                        physics: BouncingScrollPhysics(),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            SizedBox(
+                              height: 10,
+                            ),
+                            Padding(
+                              padding: EdgeInsets.only(left: 16),
+                              child: Text("Business", style: kTextStyle),
+                            ),
+                            SizedBox(height: 300, child: getList(business)),
+                            SizedBox(
+                              height: 10,
+                            ),
+                            Padding(
+                              padding: EdgeInsets.only(left: 16),
+                              child: Text(
+                                "Entertainment",
+                                style: kTextStyle,
+                              ),
+                            ),
+                            SizedBox(
+                                height: 300, child: getList(entertainment)),
+                            SizedBox(
+                              height: 10,
+                            ),
+                            Padding(
+                              padding: EdgeInsets.only(left: 16),
+                              child: Text(
+                                "General",
+                                style: kTextStyle,
+                              ),
+                            ),
+                            SizedBox(height: 300, child: getList(general)),
+                            SizedBox(
+                              height: 10,
+                            ),
+                            Padding(
+                              padding: EdgeInsets.only(left: 16),
+                              child: Text(
+                                "Health",
+                                style: kTextStyle,
+                              ),
+                            ),
+                            SizedBox(height: 300, child: getList(health)),
+                            SizedBox(
+                              height: 10,
+                            ),
+                            Padding(
+                              padding: EdgeInsets.only(left: 16),
+                              child: Text(
+                                "Science",
+                                style: kTextStyle,
+                              ),
+                            ),
+                            SizedBox(height: 300, child: getList(science)),
+                            SizedBox(
+                              height: 10,
+                            ),
+                            Padding(
+                              padding: EdgeInsets.only(left: 16),
+                              child: Text(
+                                "Sports",
+                                style: kTextStyle,
+                              ),
+                            ),
+                            SizedBox(height: 300, child: getList(sports)),
+                            SizedBox(
+                              height: 10,
+                            ),
+                            Padding(
+                              padding: EdgeInsets.only(left: 16),
+                              child: Text(
+                                "Technology",
+                                style: kTextStyle,
+                              ),
+                            ),
+                            SizedBox(height: 300, child: getList(technology)),
+                          ],
+                        )),
+                  )),
+                ),
+              ],
+            ),
           );
   }
 }

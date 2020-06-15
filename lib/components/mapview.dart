@@ -98,34 +98,38 @@ class _MapViewState extends State<MapView> {
                       )));
         });
 
-    return Stack(children: [
-      GoogleMap(
-        zoomControlsEnabled: false,
-        mapType: MapType.hybrid,
-        initialCameraPosition: _kGooglePlex,
-        onMapCreated: (GoogleMapController controller) {
-          _controller.complete(controller);
-        },
-        onTap: (value) async {
-          print(value);
-          setState(() {
-            position = value;
-          });
-        },
-        markers: Set.from([myMarker]),
-      ),
-      Align(
-        alignment: Alignment.bottomRight,
-        child: Padding(
-          padding: const EdgeInsets.all(12.0),
-          child: FloatingActionButton(
-            onPressed: () async {
-              await goToTheLake();
+    return SafeArea(
+          child: Scaffold(
+                      body: Stack(children: [
+        GoogleMap(
+            zoomControlsEnabled: false,
+            mapType: MapType.hybrid,
+            initialCameraPosition: _kGooglePlex,
+            onMapCreated: (GoogleMapController controller) {
+              _controller.complete(controller);
             },
-            child: Icon(Icons.location_on,size: 32,),
-          ),
+            onTap: (value) async {
+              print(value);
+              setState(() {
+                position = value;
+              });
+            },
+            markers: Set.from([myMarker]),
         ),
-      )
-    ]);
+        Align(
+            alignment: Alignment.bottomRight,
+            child: Padding(
+              padding: const EdgeInsets.all(12.0),
+              child: FloatingActionButton(
+                onPressed: () async {
+                  await goToTheLake();
+                },
+                child: Icon(Icons.location_on,size: 32,),
+              ),
+            ),
+        )
+      ]),
+          ),
+    );
   }
 }
