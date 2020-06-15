@@ -11,9 +11,9 @@ class PrimaryCard extends StatelessWidget {
       height: 320,
       padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 15.0),
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(11.0),
+          borderRadius: BorderRadius.circular(15.0),
           border: Border.all(color: Colors.grey[300], width: 1.0)),
-      child: Column(
+      child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Row(
@@ -38,7 +38,7 @@ class PrimaryCard extends StatelessWidget {
               tag: news.title,
               child: Container(
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(8.0),
+                  borderRadius: BorderRadius.circular(15.0),
                   image: DecorationImage(
                     image: NetworkImage(news.urlToImage),
                     fit: BoxFit.cover,
@@ -49,55 +49,53 @@ class PrimaryCard extends StatelessWidget {
           ),
           SizedBox(height: 8.0),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 8.0),
+            padding: const EdgeInsets.symmetric(horizontal:8.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
+              Text(
+              news.title,
+              textAlign: TextAlign.left,
+              overflow: TextOverflow.ellipsis,
+              maxLines: 2,
+              style: TextStyle(
+                fontSize: 18.0,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            SizedBox(height: 8.0),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
                 Text(
-                  news.title,
-                  textAlign: TextAlign.left,
-                  overflow: TextOverflow.ellipsis,
-                  maxLines: 2,
+                news.author,
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+                style: TextStyle(
+                  fontSize: 15.0,
+                ),
+                ),
+                
+                Row(children: [
+                   CircleAvatar(
+                  radius: 5.0,
+                   backgroundColor: Colors.lightBlue,
+                ),
+                SizedBox(width: 10.0),
+                Text(
+                  news.publishedAt,
+                  maxLines: 1,
                   style: TextStyle(
-                    fontSize: 18.0,
-                    fontWeight: FontWeight.bold,
+                    fontSize: 14.0,
                   ),
                 ),
-                SizedBox(height: 8.0),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      news.author,
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                      style: TextStyle(
-                        fontSize: 15.0,
-                        fontWeight: FontWeight.w600
-                      ),
-                    ),
-                    SizedBox(height: 1),
-                    Row(
-                      children: [
-                        CircleAvatar(
-                          radius: 5.0,
-                          backgroundColor: Colors.lightBlue,
-                        ),
-                        SizedBox(width: 10.0),
-                        Text(
-                          news.publishedAt,
-                          maxLines: 1,
-                          style: TextStyle(
-                            fontSize: 14.0,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
-                )
+                ],),
+               
               ],
-            ),
+            )
+            ],),
           ),
+          
         ],
       ),
     );

@@ -34,7 +34,6 @@ class _NewsScreenState extends State<NewsScreen> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     newsLoaded = false;
     getNews();
@@ -45,7 +44,7 @@ class _NewsScreenState extends State<NewsScreen> {
     return Scaffold(
       appBar: AppBar(title: Text("News"),),
       body: !newsLoaded
-      ? CircularProgressIndicator() 
+      ? Center(child: CircularProgressIndicator()) 
       : ListView(
               physics: BouncingScrollPhysics(),
               children: [
